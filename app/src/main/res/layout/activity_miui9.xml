@@ -93,8 +93,9 @@
         android:layout_height="match_parent"
         android:background="#00000000"
         app:calendarHeight="300dp"
-        app:defaultCalendar="week"
-        >
+        app:defaultCalendar="month"
+        app:pointLocation="down"
+        app:pointDistance="24dp">
 
 
         <androidx.recyclerview.widget.RecyclerView

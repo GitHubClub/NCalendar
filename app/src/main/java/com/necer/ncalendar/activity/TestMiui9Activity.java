@@ -17,9 +17,11 @@ import com.necer.listener.OnCalendarMultipleChangedListener;
 import com.necer.listener.OnCalendarScrollingListener;
 import com.necer.ncalendar.R;
 import com.necer.ncalendar.adapter.RecyclerViewAdapter;
+import com.necer.painter.InnerPainter;
 
 import org.joda.time.LocalDate;
 
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -42,7 +44,7 @@ public class TestMiui9Activity extends BaseActivity {
 
         miui9Calendar = findViewById(R.id.miui9Calendar);
 
-        miui9Calendar.setCalendarState(CalendarState.WEEK);
+        miui9Calendar.setCalendarState(CalendarState.MONTH);
         miui9Calendar.setCheckMode(checkModel);
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
 
@@ -76,7 +78,10 @@ public class TestMiui9Activity extends BaseActivity {
                 Log.d(TAG, "onCalendarScrolling：：" + dy);
             }
         });
-
+        //添加圆点
+        List<String> pointList = Arrays.asList("2020-10-01", "2020-10-19", "2020-11-20", "2020-12-23", "2021-01-01");
+        InnerPainter innerPainter = (InnerPainter) miui9Calendar.getCalendarPainter();
+        innerPainter.setPointList(pointList);
     }
 
     public void jump_2018_08_11(View view) {
